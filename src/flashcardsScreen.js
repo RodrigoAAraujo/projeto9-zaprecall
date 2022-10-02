@@ -16,6 +16,7 @@ export default function FlashCardsScreen(){
         {id:7, question: "O que é JSX?", answer:"Uma extensão de linguagem do JavaScript", review: 0},
         {id:8, question: "O que é JSX?", answer:"Uma extensão de linguagem do JavaScript", review: 0},
     ]
+
     const [cardsStatus, setCards] = useState(cards)
 
     return(
@@ -27,29 +28,28 @@ export default function FlashCardsScreen(){
 
             <main>
                 {cardsStatus.map((q)=> 
-                    <FlashCard  
+                    <FlashCard 
+                        allQuestions = {cardsStatus}
                         question = {q}
                         setQuestion = {setCards}
+                        key={q.id}
                     />
                 )}
             </main>
 
-            <Footer reviews={cards.map((i)=> i.review)}/>
+            <Footer reviews={cardsStatus.map((i)=> i.review)}/>
         </Deck>
     )
 }
 
-const Deck = styled.div`
-
-    @import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900;1000&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-    
+const Deck = styled.div`    
     display: flex;
     flex-direction: column;
     background-color: var(--cor-fundo);
     
 
     header {
+        position: static;
         height: 80px;
         display: flex;
         justify-content: center;
@@ -70,13 +70,13 @@ const Deck = styled.div`
 
     main{
         max-width: 600px;
-        width: 80%;
-        margin: 10px auto;
-        max-height: 400px;
+        width: 100%;
+        margin: 0px auto;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 100px;
 
         &::-webkit-scrollbar {
             display: none;
