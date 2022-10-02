@@ -18,7 +18,7 @@ export default function Footer({reviews}) {
 
     return (
         <FooterStyle>
-            <h2>{(reviewStatus !== reviews)?verifyComplete():contador}/{reviews.length} CONCLUÍDOS</h2>
+            <h2 data-identifier="flashcard-counter">{(reviewStatus !== reviews)?verifyComplete():contador}/{reviews.length} CONCLUÍDOS</h2>
             <div>   
                 {reviewStatus.map((i, index)=>
                     <QuestionIcon review = {i} key={index}/>

@@ -41,19 +41,19 @@ export default function InitialScreen({screenOn, changeScreen, chooseDecks, goal
                     <h1>ZapRecall</h1>
                 </Logo>
                 <InputArea>
-                    {(stage===0)? <button onClick={() => upStage()}>Iniciar Recall!</button>:
+                    {(stage===0)? <button onClick={() => upStage()} data-identifier="start-btn">Escolher Deck!</button>:
                     (stage === 1)? 
                     <>
-                        <select onChange={(e)=> setInput(e.target.value)}>
-                            {DECKS.map((e)=> <option>{e.name}</option>)}
+                        <select onChange={(e)=> setInput(e.target.value)} data-identifier="deck-selector">
+                            {DECKS.map((e)=> <option data-identifier="deck-option">{e.name}</option>)}
                         </select>
-                        <button onClick={() => chooseDecksInternally()}>Iniciar Recall!</button>
+                        <button onClick={() => chooseDecksInternally()} data-identifier="start-btn">Escolher as metas!</button>
                     </>:
                     <>
-                        <select onChange={(e)=> setGoal(e.target.value)}>
+                        <select onChange={(e)=> setGoal(e.target.value)} data-identifier="goals-input">
                             {chosenDeck.cards.map((e)=> <option>{e.id}</option>)}
                         </select>
-                        <button onClick={() => switchScreen()}>Iniciar Recall!</button>
+                        <button onClick={() => switchScreen()} data-identifier="start-btn">Iniciar Recall!</button>
                     </>}
                 
                 </InputArea>

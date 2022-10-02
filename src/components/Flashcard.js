@@ -36,7 +36,7 @@ export default function FlashCard({allQuestions, question, setQuestion}) {
     function iconAside(item){
         switch(item){
             case 0:
-                return <span onClick={sumStatus}>{playIcon}</span>
+                return <span onClick={sumStatus} data-identifier="flashcard-show-btn" >{playIcon}</span>
             case 1:
                 return wrongCheck
             case 2:
@@ -47,24 +47,24 @@ export default function FlashCard({allQuestions, question, setQuestion}) {
     }
 
     return (
-        <FlashBlock>
-            <QuestionPreview status={status} review={question.review}>
-                <h1>
+        <FlashBlock data-identifier="flashcard">
+            <QuestionPreview data-identifier="flashcard-index-item" status={status} review={question.review}>
+                <h1 >
                     Pergunta {question.id}
                 </h1>
                 {iconAside(question.review)}
             </QuestionPreview>
 
             <QuestionBlock status={status}>
-                <p>{question.question}</p>
-                <img src={turnAnswer} onClick={sumStatus}/>
+                <p data-identifier="flashcard-question">{question.question}</p>
+                <img src={turnAnswer} onClick={sumStatus}  data-identifier="flashcard-turn-btn"/>
             </QuestionBlock>
             <Answer status={status}>
-                <p>{question.answer}</p>
+                <p data-identifier="flashcard-answer">{question.answer}</p>
                 <section>
-                    <button className="error" onClick={() =>setReview(1)}>Não lembrei</button>
-                    <button className="almost" onClick={() => setReview(2)}>Quase lembrei</button>
-                    <button className="zap" onClick={() => setReview(3)}>Zap!</button>
+                    <button className="error" data-identifier="forgot-btn" onClick={() =>setReview(1)}>Não lembrei</button>
+                    <button className="almost" data-identifier="almost-forgot-btn" onClick={() => setReview(2)}>Quase lembrei</button>
+                    <button className="zap" data-identifier="zap-btn" onClick={() => setReview(3)}>Zap!</button>
                 </section>
             </Answer>
         </FlashBlock>
