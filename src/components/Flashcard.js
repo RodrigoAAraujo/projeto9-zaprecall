@@ -1,12 +1,12 @@
 import { useState } from "react"
 import styled from "styled-components"
 
-import playIcon from "./img/play-outline.js"
-import turnAnswer from "./img/setinha.png"
+import playIcon from "../img/play-outline.js"
+import turnAnswer from "../img/setinha.png"
 
-import wrongCheck from "./img/close-circle-icon.js"
-import middleCheck from "./img/help-circle-icon.js"
-import rigthCheck from "./img/checkmark-circle-icon.js"
+import wrongCheck from "../img/close-circle-icon.js"
+import middleCheck from "../img/help-circle-icon.js"
+import rigthCheck from "../img/checkmark-circle-icon.js"
 
 
 export default function FlashCard({allQuestions, question, setQuestion}) {
