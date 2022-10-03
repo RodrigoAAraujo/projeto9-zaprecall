@@ -120,9 +120,10 @@ const InputArea = styled.div`
         width: 100%;
         border-radius: 5px;
         padding: 16px 4px;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 400;
         line-height: 22px;
+        color: #D70900;
         letter-spacing: 0em;
         font-family: 'Roboto', sans-serif;
         cursor: pointer;
