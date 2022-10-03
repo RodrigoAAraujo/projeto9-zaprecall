@@ -55,7 +55,6 @@ export default function InitialScreen({screenOn, changeScreen, chooseDecks, goal
                         </select>
                         <button onClick={() => switchScreen()} data-identifier="start-btn">Iniciar Recall!</button>
                     </>}
-                
                 </InputArea>
             </Container>
         </Initial>
@@ -64,9 +63,6 @@ export default function InitialScreen({screenOn, changeScreen, chooseDecks, goal
 
 const Initial = styled.div`
     height: 100vh;
-    backface-visibility: hidden;
-    transform: ${props => props.on === 1 ? "rotateY(0deg)" : "rotateY(180deg)"};
-    transition: 1s all;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -129,5 +125,6 @@ const InputArea = styled.div`
         line-height: 22px;
         letter-spacing: 0em;
         font-family: 'Roboto', sans-serif;
+        cursor: pointer;
     }
 `

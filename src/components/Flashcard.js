@@ -28,6 +28,7 @@ export default function FlashCard({allQuestions, question, setQuestion}) {
                 pushArray.push(e)
             }
         });
+        console.log(pushArray)
         setQuestion(pushArray)
         setStatus(0)
         setDecided(1)
@@ -73,9 +74,13 @@ export default function FlashCard({allQuestions, question, setQuestion}) {
 
 
 const FlashBlock = styled.div`
-    position: relative;
-    margin: 20px 0px;
+    margin: 20px;
     font-family: 'Recursive', sans-serif;
+    width: 300px;
+
+    @media (max-width:350px){
+        width: 90%
+    }
 
     @keyframes turning {
         from{
@@ -97,7 +102,7 @@ const QuestionPreview = styled.div`
     background-color: white;
     border-radius: 5px;
     padding: 20px 10px;
-    width: 300px;
+    width: 100%;
 
     backface-visibility: hidden;
 
@@ -133,7 +138,7 @@ const QuestionBlock = styled.div`
     align-items: flex-start;
     border-radius: 5px;
     padding: 20px 10px;
-    width: 300px;
+    width: 100%;
     background-color: var(--cor-fundo-card);
 
     backface-visibility: hidden;
@@ -156,7 +161,7 @@ const QuestionBlock = styled.div`
 `
 
 const Answer = styled.div`
-    width: 300px;
+    width: 100%;
     border-radius: 5px;
     padding: 20px 10px;
     background-color: var(--cor-fundo-card);

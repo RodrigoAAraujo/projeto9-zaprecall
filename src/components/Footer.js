@@ -11,7 +11,7 @@ export default function Footer({reviews}) {
     const [reviewStatus, setReviews] = useState(reviews)
 
     function verifyComplete() {
-        reviews.forEach((e) => (e != 0) ? setContador(contador + 1) : null)
+        reviews.forEach((e) => (e !== 0) ? setContador(contador + 0.5) : null)
         setReviews(reviews)
         return contador
     }
@@ -50,10 +50,10 @@ function QuestionIcon({review}){
 }
 
 
-const FooterStyle = styled.footer`
+const FooterStyle = styled.div`
 
-    bottom: 0;
-    left: 0;
+    position: fixed;
+    bottom: 0; left: 0;
     background-color: white;
     z-index: 1;
     width: 100%;
@@ -63,7 +63,6 @@ const FooterStyle = styled.footer`
     font-weight: 400;
     font-family: 'Recursive', sans-serif;;
 
-    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,6 +73,7 @@ const FooterStyle = styled.footer`
         color: #d3d3d3;
     }
     div{
+        margin-top: 8px;
         display: flex;
         align-items: center;
         justify-content: space-between;

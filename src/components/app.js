@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import FlashCardsScreen from "./components/FlashcardsScreen.js"
-import InitialScreen from "./components/InitialScreen.js"
-import GlobalStyle from "./GlobalStyle";
+import FlashCardsScreen from "./FlashcardsScreen.js"
+import InitialScreen from "./InitialScreen.js"
+import GlobalStyle from "../GlobalStyle";
 
 
 export default function App() {
@@ -28,10 +28,10 @@ export default function App() {
             <>
                 <GlobalStyle />
                 <FlashCardsScreen
-                screenOn={screen}
-                changeScreen={setScreen}
-                deck={deckChosen}
-                goal={goalNumber}
+                    screenOn={screen}
+                    changeScreen={setScreen}
+                    deck={deckChosen.cards}
+                    goal={goalNumber}
                 />
             </>
         )
