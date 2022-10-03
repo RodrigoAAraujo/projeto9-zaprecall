@@ -95,6 +95,8 @@ const Deck = styled.div`
         width: 100%;
         margin: 80px auto 100px;
         overflow-y: auto;
+        overflow-x: hidden;
+        flex-direction: row;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -107,6 +109,7 @@ const Deck = styled.div`
 
         @media (max-width:400px){
             flex-direction: column;
+            justify-content: flex-start;
             flex-wrap: nowrap;
         }
     }
