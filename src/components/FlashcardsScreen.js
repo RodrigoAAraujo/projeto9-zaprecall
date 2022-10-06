@@ -10,25 +10,21 @@ import FinishScreen from "./FinishScreen.js"
 export default function FlashCardsScreen({ screenOn, changeScreen, deck, goal}) {
 
     const [cardsStatus, setCards] = useState(deck)
-    const [contador, setContador] = useState(0)
-    const [contadorZapPass, setZap] = useState(0)
+    const [counter, setCounter] = useState(0)
+    const [counterZapPass, setZap] = useState(0)
 
     function checkCounter(){
-        let contadorZap = 0
-        let contador = 0
+        let counterZap = 0
+        let counter = 0
 
-        cardsStatus.forEach((e)=> (e.review !== 0)? contador++: null)
-        cardsStatus.forEach((e) => (e.review === 3)? contadorZap++ :null)
+        cardsStatus.forEach((e)=> (e.review !== 0)? counter++: null)
+        cardsStatus.forEach((e) => (e.review === 3)? counterZap++ :null)
 
-        setZap(contadorZap)
-        setContador(contador)
-        console.log(contador)
+        setZap(counterZap)
+        setCounter(counter)
     }
 
     useEffect(() => checkCounter(), [cardsStatus])
-
-
-
 
     return (
         <Deck on={screenOn}>
@@ -48,13 +44,13 @@ export default function FlashCardsScreen({ screenOn, changeScreen, deck, goal}) 
                 )}
             </main>
 
-            <Footer reviews={cardsStatus.map((i) => i.review)} />
+            <Footer reviews={cardsStatus.map((i) => i.review)} counter={counter} />
 
-            {(contador >= cardsStatus.length)?
+            {(counter >= cardsStatus.length)?
             <FinishScreen 
                 achievement={goal} 
                 change={changeScreen}
-                zaps={contadorZapPass}
+                zaps={counterZapPass}
             />
             :null}
         </Deck>

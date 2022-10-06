@@ -6,21 +6,13 @@ import middleCheck from "../img/help-circle-icon.js"
 import rigthCheck from "../img/checkmark-circle-icon.js"
 
 
-export default function Footer({reviews}) {
-    const [contador, setContador] = useState(0)
-    const [reviewStatus, setReviews] = useState(reviews)
-
-    function verifyComplete() {
-        reviews.forEach((e) => (e !== 0) ? setContador(contador + 0.5) : null)
-        setReviews(reviews)
-        return contador
-    }
+export default function Footer({reviews, counter}) {
 
     return (
         <FooterStyle>
-            <h2 data-identifier="flashcard-counter">{(reviewStatus !== reviews)?verifyComplete():contador}/{reviews.length} CONCLUÍDOS</h2>
+            <h2 data-identifier="flashcard-counter">{counter}/{reviews.length} CONCLUÍDOS</h2>
             <div>   
-                {reviewStatus.map((i, index)=>
+                {reviews.map((i, index)=>
                     <QuestionIcon review = {i} key={index}/>
                 )}
             </div>
